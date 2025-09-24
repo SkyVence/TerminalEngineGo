@@ -4,9 +4,11 @@
 *.dll
 *.so
 *.dylib
-hello-world
-animation
-game
+
+# Example binaries
+examples/hello-world/hello-world
+examples/animation/animation
+examples/game/game
 
 # Test binary, built with `go test -c`
 *.test
