@@ -1,16 +1,16 @@
 package engine
 
 import (
+	"log"
 	"os"
 	"strings"
 	"sync"
 )
 
 type LocalizationManager struct {
-	currentLang     string
-	catalog         Catalog
-	fallbackCatalog Catalog
-	mutex           sync.RWMutex
+	currentLang string
+	catalog     Catalog
+	mutex       sync.RWMutex
 }
 
 var (
@@ -25,7 +25,10 @@ func GetLocalizationManager() *LocalizationManager {
 		globalLocManager = &LocalizationManager{
 			currentLang: "fr",
 		}
-		globalLocManager.SetLanguage("fr")
+		err := globalLocManager.SetLanguage("fr")
+		if err != nil {
+			log.Fatalf("Error in localization: %v", err)
+		}
 	})
 	return globalLocManager
 }
