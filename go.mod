@@ -1,4 +1,4 @@
-module github.com/skyvence/TerminalEngineGo
+module github.com/skyvence/terminalenginego
 
 go 1.24.0
 
