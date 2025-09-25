@@ -17,6 +17,11 @@ A simple, elegant terminal game engine written in Go that provides a foundation 
 - **Alternate screen mode** for full-screen applications
 - **Simple API** that's easy to learn and use
 
+## Features planned
+
+- **Compositing** multiple layer for ui's
+- **Mouse support**
+
 ## Installation
 
 ```bash
