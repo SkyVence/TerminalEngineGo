@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 
-## [v0.1.3] - 2025-09-24
+## [v0.1.3] - 2025-09-25
 
 - docs: ai-gen merge pull request #1 from [SkyVence/copilot/fix-d1454e29-08d0-4629-8c74-b6a8cb57055e] (b6440c4)
 - Add examples directory with working code samples (37ea35e)
