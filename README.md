@@ -3,7 +3,8 @@
 ![Version](https://img.shields.io/github/v/tag/SkyVence/TerminalEngineGo?label=version&sort=semver)
 ![Go Version](https://img.shields.io/github/go-mod/go-version/SkyVence/TerminalEngineGo)
 ![License](https://img.shields.io/github/license/SkyVence/TerminalEngineGo)
-![Build Status](https://img.shields.io/github/actions/workflow-status/SkyVence/TerminalEngineGo/release.yml)
+[![Build Status](https://img.shields.io/github/actions/workflow-status/SkyVence/TerminalEngineGo/release.yml)](https://img.shields.io/github/actions/workflow/status/skyvence/terminalenginego/release.yml
+)
 
 A simple, elegant terminal game engine written in Go that provides a foundation for building interactive terminal applications and games.
 
