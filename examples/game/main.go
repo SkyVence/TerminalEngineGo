@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/skyvence/TerminalEngineGo"
+	engine "github.com/skyvence/TerminalEngineGo"
 )
 
 type gameModel struct {
 	playerX, playerY int
 	width, height    int
-	score           int
+	score            int
 }
 
 func (m gameModel) Init() engine.Msg {
@@ -48,7 +48,7 @@ func (m gameModel) Update(msg engine.Msg) (engine.Model, engine.Cmd) {
 		}
 	case engine.SizeMsg:
 		if msg.Width > 2 && msg.Height > 5 {
-			m.width = msg.Width - 2  // Account for borders
+			m.width = msg.Width - 2   // Account for borders
 			m.height = msg.Height - 5 // Account for UI
 		}
 	}
@@ -64,25 +64,25 @@ func (m gameModel) View() string {
 			board[i][j] = '.'
 		}
 	}
-	
+
 	// Place player
 	if m.playerY < len(board) && m.playerX < len(board[0]) {
 		board[m.playerY][m.playerX] = '@'
 	}
-	
+
 	// Render board
 	result := fmt.Sprintf("Score: %d\n\n", m.score)
 	for _, row := range board {
 		result += string(row) + "\n"
 	}
-	
+
 	result += "\nUse WASD or arrow keys to move, q to quit"
 	return result
 }
 
 func main() {
-	p := engine.NewProgram(gameModel{})
-	
+	p := engine.NewProgram(engine.Wrap(gameModel{}), engine.WithAltScreen())
+
 	if err := p.Run(); err != nil {
 		fmt.Printf("Error: %v\n", err)
 		os.Exit(1)
