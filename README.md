@@ -77,11 +77,10 @@ For detailed documentation, see the [docs](./docs/) directory:
 
 ## Examples
 
-Check out the [examples](./examples/) directory for practical implementations:
+Check out the [examples](https://github.com/SkyVence/example-terminalengine) repository for practical implementations
 
-- [Hello World](./examples/hello-world/) - Basic terminal application
-- [Animation Demo](./examples/animation/) - Frame-based animation example
-- [Game Example](./examples/game/) - Simple interactive game
+- Currently in the process of remaking the example in the new repository
+- Old example are still accessible in [older example](./examples/)
 
 ## Contributing
 
