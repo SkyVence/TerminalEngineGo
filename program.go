@@ -12,7 +12,8 @@ type Program struct {
 	renderer Renderer
 	msgs     chan Msg
 
-	useAltScreen bool
+	useAltScreen     bool
+	usePixelRenderer bool
 
 	quit bool
 }
@@ -22,6 +23,23 @@ type ProgramOption func(*Program)
 func WithAltScreen() ProgramOption {
 	return func(p *Program) {
 		p.useAltScreen = true
+	}
+}
+
+// WithPixelRenderer enables pixel-based rendering instead of standard text rendering
+func WithPixelRenderer() ProgramOption {
+	return func(p *Program) {
+		p.usePixelRenderer = true
+		p.renderer = NewPixelRenderer(os.Stdout)
+	}
+}
+
+// WithBase enables common options for graphical applications: alt screen and pixel renderer
+func WithBase() ProgramOption {
+	return func(p *Program) {
+		p.useAltScreen = true
+		p.usePixelRenderer = true
+		p.renderer = NewPixelRenderer(os.Stdout)
 	}
 }
 
@@ -111,10 +129,31 @@ func (p *Program) Run() error {
 		}()
 	}
 
-	for !p.quit {
+	// Initial render
+	if p.usePixelRenderer {
+		if pixelModel, ok := p.Model.(PixelModel); ok {
+			buffer := pixelModel.PixelView()
+			if pr, ok := p.renderer.(*PixelRenderer); ok {
+				pr.RenderPixels(buffer)
+			}
+		}
+	} else {
 		view := p.Model.View()
-
 		p.renderer.Write(view)
+	}
+
+	for !p.quit {
+		if p.usePixelRenderer {
+			if pixelModel, ok := p.Model.(PixelModel); ok {
+				buffer := pixelModel.PixelView()
+				if pr, ok := p.renderer.(*PixelRenderer); ok {
+					pr.RenderPixels(buffer)
+				}
+			}
+		} else {
+			view := p.Model.View()
+			p.renderer.Write(view)
+		}
 
 		msg := <-p.msgs
 

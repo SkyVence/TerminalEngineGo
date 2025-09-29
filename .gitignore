@@ -9,6 +9,7 @@
 examples/hello-world/hello-world
 examples/animation/animation
 examples/game/game
+plan
 
 # Test binary, built with `go test -c`
 *.test

@@ -47,3 +47,9 @@ type SizeMsg struct {
 	Width  int
 	Height int
 }
+
+// PixelModel extends Model with pixel-based rendering capabilities
+type PixelModel interface {
+	Model
+	PixelView() *PixelBuffer
+}
