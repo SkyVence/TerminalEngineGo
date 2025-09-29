@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 
 
+## [v0.2.0-beta.1] - 2025-09-29
+
+- wip: cell based renderer and compositor (db56356)
+- Update build status badge in README.md (d9bf916)
+- Fix Build Status badge formatting in README.md (267c74f)
+- wip: pixel based render + compositor (fc3f2e6)
+- Add planned features to README (e0623bd)
+- Update changelog date for version 0.1.3 (f28c38c)
+- Update CHANGELOG.md for v0.1.3 (1b128c5)
+
+**Full Changelog:** https://github.com/SkyVence/TerminalEngineGo/compare/v0.1.3...v0.2.0-beta.1
+
+
 ## [v0.1.3] - 2025-09-25
 
 - docs: ai-gen merge pull request #1 from [SkyVence/copilot/fix-d1454e29-08d0-4629-8c74-b6a8cb57055e] (b6440c4)
